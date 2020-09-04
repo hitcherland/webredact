@@ -1,0 +1,50 @@
+#tools {
+    width: 100%;
+    height: auto;
+    background: var(--menu-off);
+    display: flex;
+    flex-flow: row wrap;
+}
+
+
+#tools .tool {
+    background:var(--menu);
+    position: relative;
+    margin: 0.1em;
+    border-radius: 2px;
+    border: 1px solid white;
+    min-width: 1.5em;
+    padding: 0.2em;
+    height: 1.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 20;
+}
+
+#tools .tool *:first-child {
+    position: relative;
+    text-align: center;
+    z-index: 30;
+}
+
+#tools .tool *:not(:first-child) {
+    display: none;
+    position: absolute;
+    top: 00%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 1em;
+    z-index: 40;
+    box-sizing: border-box;
+}
+
+#tools .tool:hover *:not(:first-child),
+#tools .tool *:not(:first-child):focus {
+    display: block;
+}
+
+#tools .tool img {
+    height: 100%;
+}

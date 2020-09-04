@@ -1,0 +1,199 @@
+@import "css/menu.css";
+@import "css/ui.css";
+@import "css/tools.css";
+
+@media screen {
+    :root {
+        --menu: #ced1d8;
+        --menu-off: rgba(81, 82, 85, 0.5);
+        --menu-font: #202022;
+        --bg: #2d2d2e;
+        --page-zoom: 0.5;
+    }
+
+    body {
+        display: flex;
+        flex-direction: column;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+        margin: 0;
+        background: var(--bg);
+    }
+
+    .menubar *,
+    #tools {
+        user-select: none;
+    }
+
+    .body {
+        flex-grow: 1;
+        overflow: auto;
+    }
+
+    #pages {
+        width: 100%;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+
+    .page {
+        width: 100%;
+        display: flex;
+        flex-flow: row;
+        justify-content: center;
+
+        margin: 0.5em;
+        box-sizing: border-box;
+    }
+
+    .page-container {
+        display: flex;
+        position: relative;
+        width: calc(100% * var(--page-zoom));
+    }
+
+
+    .page canvas {
+        position: relative;
+        width: 100%;
+        height: auto;
+        box-shadow: 0 0 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .layers {
+        position: relative;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: flex-start;
+        align-content: flex-start;
+        align-items: center;
+        margin-left: 10px;
+        flex-grow: 1;
+        max-width: 10vw;
+    }
+
+    .layers label {
+        top: 0;
+        width: 100%;
+        background: white;
+        border: 2px solid black;
+        padding: 5px;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .layers button {
+        order: 1;
+        width: 100%;
+    }
+    
+
+    .layer-icon {
+        height: 2em;
+        line-height: 2em;
+        border: 2px solid black;
+        color: black;
+        margin: 2px;
+        padding: 5px;
+        border-radius: 5px;
+        text-align: center;
+        cursor: pointer;
+        user-select: none;
+        background: white;
+    }
+
+    .layer-icon:hover {
+        background: #eee;
+    }
+
+    .edit-overlay {
+        left: 0;
+        top: 0;
+        transform-origin: top left;
+        position: absolute;
+
+        width: 792px;
+        height: 1122px;
+    }
+
+    .edit-pseudo {
+        position: absolute;
+        left: 0;
+        top: 0;
+        background: transparent;
+    }
+
+    .edit-pseudo * {
+        display: none;
+    }
+
+    .edit-pseudo[data-active="true"],
+    .layer-icon[data-active="true"] {
+        outline: 3px solid #F0F;
+        z-index: 10;
+    }
+
+    .edit-pseudo[data-active="true"] {
+        resize: both;
+        overflow: hidden;
+    }
+
+
+    .edit-pseudo[data-active="true"]::after:hover,
+    .layer-icon[data-active="true"]::after:hover {
+        background: black;
+    }
+
+    .edit-pseudo[data-active="true"] *,
+    .layer-icon[data-active="true"] * {
+        display: block;
+        z-index: 10;
+        position: relative;
+    }
+
+    .offscreen {
+        position: absolute;
+        left: -999999999px;
+        width: 0px;
+        height: 0px;
+    }
+
+    .text-edit {
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.9);
+        border: 0;
+        padding: 0;
+        overflow: hidden;
+        
+    }
+}
+
+@media print {
+    html, body {
+        margin: 0;
+        xoverflow: hidden;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .page-container {
+        display: flex;
+    }
+
+    .page canvas {
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .menubar,
+    #tools,
+    .edit-overlay,
+    .layers,
+    .text-edit,
+    .offscreen {
+        display: none;
+    }
+}

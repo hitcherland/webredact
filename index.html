@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+        <script type="module" src="main.mjs" async defer></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <div class="menubar">
+            <div class="dropdown">
+                <label><span>File</span></label>
+                <div>
+                    <a data-export="png">Save as PNG</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <label>View</label>
+                <div>
+                    <a data-zoom="page-width">Fit Page Width</a>
+                    <a data-zoom="page-height">Fit Page Height</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <label>Page</label>
+                <div>
+                    <a data-add="page">Add Blank</a>
+                    <!--<a data-add="page" data-page="template">Add Template</a>-->
+                </div>
+            </div>
+            <div class="dropdown">
+                <label>Layer</label>
+                <div>
+                    <a data-add="layer" data-layer="text">Add Text Layer</a>
+                    <a data-add="layer" data-layer="image">Add Image Layer</a>
+                    <a data-add="layer" data-layer="fold">Add Fold Layer</a>
+                    <a data-add="layer" data-layer="box">Add Box Layer</a>
+                    <a data-add="layer" data-layer="scatter">Add Scatter Layer</a>
+                    <a data-add="layer" data-layer="noise">Add RGBNoise Layer</a>
+                </div>
+            </div>
+        </div>
+        <div id="tools"></div>
+        <div class="body">
+            <div id="zoom">
+                <button data-zoom="+5%">+</button>
+                <button data-zoom="-5%">-</button>
+            </div>
+            <div id="pages"></div>
+        </div>
+    </body>
+</html>
